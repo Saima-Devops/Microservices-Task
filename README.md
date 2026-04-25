@@ -79,17 +79,96 @@ docker-compose --version
 
 ---
 
+## Forked the Repository and Pushed to Github
+
+<img width="1919" height="1077" alt="image" src="https://github.com/user-attachments/assets/c8aab80f-2254-44ce-9036-a88a12066873" />
+
+---
+
 ## Running the Application
 
-To run the entire system, I used:
+To run the entire system, I used an Ubuntu EC2 instance to install Docker and Docker Compose:
+
+**1. Updated Packages**
+```
+sudo apt update && sudo apt upgrade -y
+````
+
+**2. Installed Docker**
+
+```
+sudo apt install docker.io -y
+```
+
+**3. Started and Enabled Docker**
+
+```
+sudo systemctl start docker
+sudo systemctl enable docker
+```
+
+**4. Added Permissions** 
+
+```
+sudo usermod -aG docker $USER
+exit
+```
+
+
+**5. Reconnected again via ssh**
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/1e572e1f-ca3c-48f9-a93a-0e44467d7fee" />
+
+<br>
+
+**6. Verified Docker**
+
+```
+docker --version
+```
+
+**7. Installed Docker Compose**
+
+```
+# Download Docker Compose Binary
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+
+# Apply Execute Permissions
+sudo chmod +x /usr/local/bin/docker-compose
+
+# Verify Installation
+docker-compose --version
+
+```
+----
+
+**8. Ran my project on ec2**
+
 
 ```bash
+cd Microservices-Task
+
+# Build the Image through docker compose
+
 docker-compose up --build
 ```
 
 This command builds the Docker images for all services and starts them together in a shared network (bridge network).
 
----
+
+<img width="1919" height="1074" alt="image" src="https://github.com/user-attachments/assets/24e5c40a-43d2-4b7b-90a1-90dea2136c7c" />
+
+<img width="1913" height="490" alt="image" src="https://github.com/user-attachments/assets/cb8889c6-e257-4b11-ac31-8f1c0c7d52c7" />
+
+
+<br>
+
+**Opened all end points on EC2 through security group inbound rules.**
+
+<img width="1919" height="1023" alt="image" src="https://github.com/user-attachments/assets/93f65b9d-5c4c-433a-901f-0abf2adac066" />
+
+
+-----
 
 ## Verifying Containers
 
@@ -99,16 +178,41 @@ To confirm that all containers were running properly, I checked:
 docker ps
 ```
 
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/ef62a2ec-c9e9-43c9-9ffa-099408812903" />
+
+<br>
+
+**Checked image:**
+
+
+```bash
+docker images
+```
+
+<img width="1896" height="603" alt="image" src="https://github.com/user-attachments/assets/a7390afa-7e1e-4cfe-9a3b-bbebba58c877" />
+
+<br>
+
+**To check custom bridge network whicj created:**
+
+
+```bash
+docker network ls
+```
+
+<img width="1887" height="416" alt="image" src="https://github.com/user-attachments/assets/a5335bf5-6a0a-4f98-90b0-ef0017f20bd1" />
+
+
 ---
 
 ## Service Endpoints
 
 Once everything was running, I accessed the services using these endpoints:
 
-* http://localhost:3000/users
-* http://localhost:3001/products
-* http://localhost:3002/orders
-* http://localhost:3003/health
+* http://ec2-ip:3000/users
+* http://ec2-ip:3001/products
+* http://ec2-ip:3002/orders
+* http://ec2-ip:3003/health
 
 ---
 
@@ -117,6 +221,30 @@ Once everything was running, I accessed the services using these endpoints:
 ### Browser
 
 I tested the services by opening the endpoints in a browser to make sure each one responded correctly.
+
+<br>
+
+* http://ec2-ip:3000/users
+  
+<img width="1918" height="1079" alt="image" src="https://github.com/user-attachments/assets/2ac2e0b1-c1da-4b98-aa7b-86212de49a81" />
+
+<br>
+
+* http://ec2-ip:3001/products
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/20706e4f-becb-4e2e-b448-219180b20ecd" />
+
+<br>
+
+* http://ec2-ip:3002/orders
+
+<img width="1919" height="1079" alt="image" src="https://github.com/user-attachments/assets/457cb66f-191c-48f1-b5b2-8fbe835fba8a" />
+
+<br>
+
+* http://ec2-ip:3003/health
+
+<img width="1914" height="1075" alt="image" src="https://github.com/user-attachments/assets/42a3b552-778f-4f1d-bfc2-8ce36df2f960" />
 
 ---
 
@@ -131,9 +259,12 @@ curl http://localhost:3002/orders
 curl http://localhost:3003/health
 ```
 
+<img width="1919" height="1022" alt="image" src="https://github.com/user-attachments/assets/b5552b89-6459-4660-a686-cae0cb034536" />
+
+
 ---
 
-## Docker Setup
+## Docker Setup Real Magic
 
 ### Dockerfile
 
@@ -200,6 +331,7 @@ If I were to extend this project, I would:
 * Explore scaling the services
 
 ---
+
 ## Submission
 
 The project is fully containerized using Docker and orchestrated using Docker Compose to simulate a microservices architecture.
@@ -214,6 +346,48 @@ The project is fully containerized using Docker and orchestrated using Docker Co
 
 ----
 
+## Clean Up After Project
+
+### To Stop Containers:
+
+```
+docker-compose down
+```
+
+### To Remove all containers
+
+```
+docker rm -f $(docker ps -aq)
+```
+
+### To Remove images
+
+```
+docker rmi -f $(docker images -aq)
+```
+
+### To Remove unused data
+
+```
+docker system prune -a -f
+```
+
+### Remove the custom network
+
+```
+docker network rm node-app-network
+```
+
+### To Delete project folder
+
+```
+cd ~
+rm -rf Microservces-Task
+```
+
+Done!!👍
+
+----
 ## Author
 
 **Saima Usman**\
