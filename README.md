@@ -342,7 +342,6 @@ The project is fully containerized using Docker and orchestrated using Docker Co
 ✔ docker-compose.yml included\
 ✔ README.md complete\
 ✔ No node_modules\
-✔ ZIP created correctly
 
 ----
 
@@ -353,12 +352,18 @@ The project is fully containerized using Docker and orchestrated using Docker Co
 ```
 docker-compose down
 ```
+<img width="1917" height="496" alt="image" src="https://github.com/user-attachments/assets/b6714521-a352-414a-a3ce-e20b21fc57ad" />
 
-### To Remove all containers
+<br>
+
+### To Remove all containers if they were not gone with compose down
 
 ```
 docker rm -f $(docker ps -aq)
 ```
+
+
+<br>
 
 ### To Remove images
 
@@ -366,17 +371,31 @@ docker rm -f $(docker ps -aq)
 docker rmi -f $(docker images -aq)
 ```
 
+<img width="1908" height="446" alt="image" src="https://github.com/user-attachments/assets/37e7a358-2033-4e64-ab1f-2eab0b56da60" />
+
+
+<br>
+
 ### To Remove unused data
 
 ```
 docker system prune -a -f
 ```
 
-### Remove the custom network
+<img width="958" height="762" alt="image" src="https://github.com/user-attachments/assets/1b143c95-15de-434e-a5e3-a49d95a23d8c" />
+
+<br>
+
+### Remove the custom network if not gone with compose down
 
 ```
 docker network rm node-app-network
 ```
+
+<img width="1919" height="608" alt="image" src="https://github.com/user-attachments/assets/93aaa67c-413d-42df-86c5-7c8fa2c2dbc6" />
+
+
+<br>
 
 ### To Delete project folder
 
@@ -384,6 +403,10 @@ docker network rm node-app-network
 cd ~
 rm -rf Microservces-Task
 ```
+
+<img width="1909" height="651" alt="image" src="https://github.com/user-attachments/assets/4371fe6a-dbe6-4e3e-be40-d7b7036cda8d" />
+
+<br>
 
 Done!!👍
 
