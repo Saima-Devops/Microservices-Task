@@ -8,7 +8,6 @@ RUN npm install
 
 COPY . .
 
-ENV NODE_ENV=prod123
 
 EXPOSE 3000
 

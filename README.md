@@ -433,3 +433,10 @@ Jr. DevOps Engineer\
 
 
 ![alt text](<Screenshot 2026-05-17 at 2.02.47 PM.png>)
+
+
+![alt text](<Screenshot 2026-05-17 at 3.10.40 PM.png>)
+
+![alt text](<Screenshot 2026-05-17 at 3.29.44 PM.png>)
+
+![alt text](<Screenshot 2026-05-17 at 3.40.44 PM.png>)
