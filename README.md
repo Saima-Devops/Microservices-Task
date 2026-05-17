@@ -457,6 +457,7 @@ The Gateway Service acts as the primary entry point to the application, handling
 
 ## Project Heirarchy
 
+```
 submission/
 │
 ├── README.md
@@ -497,7 +498,7 @@ submission/
     ├── Dockerfile
     ├── package.json
     ├── package-lock.json
-  
+```
 ------
 
 ## Technologies and Tools Utilized
