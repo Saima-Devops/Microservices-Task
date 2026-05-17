@@ -718,13 +718,13 @@ kubectl logs deployment/gateway-service
 ## Step 8 — Tested the Application
 
 ```
-kubectl port-forward svc/gateway-service 3003:3003
+kubectl port-forward svc/gateway-service 3000:3000
 ```
 
 **in Browser:**
 
 ```
-http://localhost:3003
+http://localhost:3000
 ```
 
 ```
