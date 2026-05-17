@@ -440,7 +440,7 @@ The primary objectives of this project are to:
 
 -------
 
-# App Components & 4 Microservices
+## App Components & 4 Microservices
 
 The application consists of four containerized Node.js microservices:
 
@@ -672,6 +672,14 @@ kubectl apply -f deployments/
 **Applied Services**
 ```
 kubectl apply -f services/
+```
+
+Applied Ingress
+```
+kubectl apply -f ingress/
+
+#Verify:
+kubectl get ingress
 ```
 
 
