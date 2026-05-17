@@ -577,15 +577,7 @@ All Kubernetes resources were successfully deployed, configured, and verified us
 ----
 
 
-
-
-
-
-
-
------
-
-## Step 1 — Verify 
+## Step 1 — Verification 
 
 ```
 docker --version
@@ -597,7 +589,7 @@ minikube version
 
 ---
 
-## Step 2 — Start Minikube
+## Step 2 — Started Minikube
 
 ```
 minikube start
@@ -608,17 +600,97 @@ kubectl get nodes
 
 <img width="2142" height="994" alt="image" src="https://github.com/user-attachments/assets/4aac8a37-6e0c-4d84-8fe1-ca031bd2d9b4" />
 
-
-
-
 ---
 
+## Step 3 — Enabled Ingress
+
+```
+minikube addons enable ingress
+
+#Verify:
+kubectl get pods -n ingress-nginx
+```
+
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/7f69c4b4-3496-4e44-bc5e-04eb0779317a" />
+
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/d53de946-e758-4203-b498-6f2128e7f8ed" />
+
+----
+
+## Step 4 — Loaded Docker Images into Minikube
+
+```
+minikube image load user-service:latest
+minikube image load product-service:latest
+minikube image load order-service:latest
+minikube image load gateway-service:latest
+
+#Verify:
+minikube image ls
+```
+
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/aab4ec81-dbcb-4c4b-a648-d91056ec3750" />
+
+----
+
+## Step 5 — Created User Service Deployment
+
+```
+nano submission/deployments/user-service.yaml
+```
+
+
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/0742eaed-9126-4696-a8b1-42fd49049d22" />
 
 
 
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+## Conclusion
+
+This project effectively demonstrates the deployment and orchestration of a microservices-based Node.js application using Kubernetes and Minikube.
+
+All services were successfully containerized, deployed, exposed, and validated within the Kubernetes cluster environment. This implementation provides practical exposure to Kubernetes architecture, deployment strategies, inter-service communication, and local cluster management using Minikube.
+
+----
 
 ## Author
 
