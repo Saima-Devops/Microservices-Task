@@ -727,12 +727,11 @@ kubectl port-forward svc/gateway-service 3003:3003
 http://localhost:3003
 ```
 
-**Tested APIs**
-
 ```
-curl http://localhost:3003/api/users
-curl http://localhost:3003/api/products
-curl http://localhost:3003/api/orders
+http://localhost:3000/users
+http://localhost:3001/products
+http://localhost:3002/orders
+http://localhost:3003/health
 ```
 
 <img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/cefc54d9-c3d8-41f7-8f73-70434744b3fb" />
