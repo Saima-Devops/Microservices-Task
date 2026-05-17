@@ -613,9 +613,6 @@ kubectl get pods -n ingress-nginx
 
 <img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/7f69c4b4-3496-4e44-bc5e-04eb0779317a" />
 
-<img width="1678" height="624" alt="image" src="https://github.com/user-attachments/assets/fe6a47af-58a5-4b5b-b833-2d06fb74eac5" />
-
-
 ----
 
 ## Step 4 — Loaded Docker Images into Minikube
