@@ -615,9 +615,16 @@ kubectl get pods -n ingress-nginx
 
 <img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/d53de946-e758-4203-b498-6f2128e7f8ed" />
 
+<img width="1678" height="624" alt="image" src="https://github.com/user-attachments/assets/fe6a47af-58a5-4b5b-b833-2d06fb74eac5" />
+
+
 ----
 
 ## Step 4 — Loaded Docker Images into Minikube
+
+```
+docker images
+```
 
 ```
 minikube image load user-service:latest
@@ -629,60 +636,114 @@ minikube image load gateway-service:latest
 minikube image ls
 ```
 
-<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/aab4ec81-dbcb-4c4b-a648-d91056ec3750" />
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/b1e2e820-240a-46b6-941d-c755926d378e" />
 
 ----
 
-## Step 5 — Created User Service Deployment
+## Step 5 — Created Deployment YAML Files 
 
 ```
 nano submission/deployments/user-service.yaml
+nano submission/deployments/product-service.yaml
+nano submission/deployments/order-service.yaml
+nano submission/deployments/gateway-service.yaml
+```
+
+-----
+
+## Step 6 — Created Service YAML Files 
+
+```
+nano submission/services/user-service.yaml
+nano submission/services/product-service.yaml
+nano submission/services/order-service.yaml
+nano submission/services/gateway-service.yaml
+```
+---
+
+## Step 6 — Deployed Everything
+
+**Applied Deployments**
+
+```
+kubectl apply -f deployments/
+```
+
+**Applied Services**
+```
+kubectl apply -f services/
 ```
 
 
 <img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/0742eaed-9126-4696-a8b1-42fd49049d22" />
 
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/911d0b46-0424-466b-9cd2-9ce9e0d61b66" />
+
+----
+
+## Step 7 — Verified Everything
+
+### Pods:
+
+```
+kubectl get pods
+```
+
+### Services:
+
+```
+kubectl get svc
+```
+
+### Deployments:
+
+```
+kubectl get deployments
+```
+
+### Checked Logs
+
+```
+kubectl logs deployment/gateway-service
+````
+
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/00b676fd-8bce-47ec-8693-130d904e8849" />
 
 
+----
+
+## Step 8 — Tested the Application
+
+```
+kubectl port-forward svc/gateway-service 3003:3003
+```
+
+**in Browser:**
+
+```
+http://localhost:3003
+```
+
+**Tested APIs**
+
+```
+curl http://localhost:3003/api/users
+curl http://localhost:3003/api/products
+curl http://localhost:3003/api/orders
+```
+
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/cefc54d9-c3d8-41f7-8f73-70434744b3fb" />
+
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/706e0a07-cc6d-4bad-a84c-2beba2c46037" />
+
+<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/6200b10e-17e4-4a18-9ab7-92427e7efee7" />
 
 
+---
 
+**Done!!** 👍
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+---
 
 ## Conclusion
 
