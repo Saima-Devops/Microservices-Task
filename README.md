@@ -680,7 +680,7 @@ kubectl get ingress
 
 <img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/0742eaed-9126-4696-a8b1-42fd49049d22" />
 
-<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/911d0b46-0424-466b-9cd2-9ce9e0d61b66" />
+<img width="1600" height="680" alt="svc" src="https://github.com/user-attachments/assets/2932c8b8-0796-4334-afc9-51c349ae9947" />
 
 ----
 
