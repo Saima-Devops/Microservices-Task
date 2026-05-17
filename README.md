@@ -1,6 +1,6 @@
-# Microservices Docker Compose Project
+# Microservices Project with Docker Compose + Kubernetes Orchestration 
 
-### Skill Test 1: Cloud and Containers
+### Skill Test 1: Containerization with Docker & Docker-Compose 
 
 ---
 
@@ -356,7 +356,7 @@ docker-compose down
 
 <br>
 
-### To Remove all containers if they were not gone with compose down
+### To remove all containers if they were not gone with compose down
 
 ```
 docker rm -f $(docker ps -aq)
@@ -406,11 +406,202 @@ rm -rf Microservces-Task
 
 <img width="1909" height="651" alt="image" src="https://github.com/user-attachments/assets/4371fe6a-dbe6-4e3e-be40-d7b7036cda8d" />
 
-<br>
+----
 
-Done!!👍
+**Part-01 Done!** 👍
 
 ----
+
+# Skiltest-2 Container Orchestration with Kubernetes
+
+This part focuses on Kubernetes deployments, service configuration, container orchestration, service discovery, and validation of inter-service communication using Minikube.
+
+------
+
+## Project Objectives
+
+The primary objectives of this project are to:
+
+- Deploy multiple **Node.js–based microservices** within a `Kubernetes` environment
+- Configure and manage Kubernetes `Deployments` and `Services` effectively
+- Establish reliable inter-service communication within the `Kubernetes cluster`
+- Utilize `Minikube` as the local Kubernetes development and testing platform
+- Verify application availability, service accessibility, and `pod` health status
+- Gain practical understanding of container `orchestration` and Kubernetes-based application management using Kubernetes
+
+-------
+
+# App Components & 4 Microservices
+
+The application consists of four containerized Node.js microservices:
+
+| Service Name | Description | Port |
+|---|---|---|
+| User Service | Handles user-related operations | 3000 |
+| Product Service | Handles product-related operations | 3001 |
+| Order Service | Handles order-related operations | 3002 |
+| Gateway Service | Acts as API gateway and entry point | 3003 |
+
+The Gateway Service acts as the primary entry point to the application, handling external client requests and routing them to the appropriate internal services within the system.
+
+----
+
+## Project Heirarchy
+
+submission/
+│
+├── README.md
+│
+├── deployments/
+│   ├── user-service.yaml
+│   ├── product-service.yaml
+│   ├── order-service.yaml
+│   └── gateway-service.yaml
+│
+├── services/
+│   ├── user-service.yaml
+│   ├── product-service.yaml
+│   ├── order-service.yaml
+│   └── gateway-service.yaml
+│
+├── ingress/                     
+│   └── ingress.yaml
+│
+├── screenshots/ (All captured shots are here)
+│  
+├── user-service-source-code/
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── package-lock.json
+│   
+├── product-service-source-code/
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── package-lock.json
+│   
+├── order-service-source-code/
+│   ├── Dockerfile
+│   ├── package.json
+│   ├── package-lock.json
+│   
+└── gateway-service-source-code/
+    ├── Dockerfile
+    ├── package.json
+    ├── package-lock.json
+  
+------
+
+## Technologies and Tools Utilized
+
+The following technologies and development tools were utilized throughout the implementation of this project:
+
+- Node.js
+- Docker Desktop
+- Kubernetes
+- Minikube
+- kubectl
+- Visual Studio Code
+-  Git and GitHub
+
+-----
+
+## Kubernetes Resources Configuration
+
+### Deployments
+
+Dedicated Kubernetes Deployment manifests were created and configured for each of the four microservices within the application architecture.
+
+Each deployment definition includes:
+
+- Container image specifications
+- Labels and selector configurations
+- Resource requests and limit settings
+- Environment variable definitions
+- Replica management configuration
+- Liveness and readiness probe settings 
+
+These deployments provide automated pod orchestration, scalability, self-healing capabilities, and high availability within the Kubernetes cluster.
+
+---
+
+### Services
+
+Kubernetes Services were implemented for all microservices to enable secure and reliable communication between components inside the cluster.
+
+### Service Types Used in this Project
+
+| Service | Type |
+|---|---|
+| User Service | ClusterIP |
+| Product Service | ClusterIP |
+| Order Service | ClusterIP |
+| Gateway Service | NodePort |
+
+`ClusterIP` services provide internal communication between services, while the Gateway Service uses `NodePort` to allow external access from the browser.
+
+-----
+
+### Minikube Configuration
+
+**Minikube** was utilized as the local Kubernetes environment for deploying, managing, and testing the application.
+
+The **Docker Desktop** driver was configured with Minikube to streamline container execution and simplify the local deployment workflow.
+
+The **Kubernetes cluster** was successfully initialized, and all **Deployment** and **Service** configurations were applied and managed using **kubectl**.
+
+-----
+
+## Application Deployment Process
+
+The application deployment procedure was carried out through the following stages:
+
+1. Building and containerizing all microservices using Docker images
+2. Initializing the Minikube cluster environment
+3. Deploying the Kubernetes Deployment manifests
+4. Configuring and applying Kubernetes Service manifests
+5. Validating pod health, deployment status, and service configurations
+6. Testing application availability and external access through the Gateway Service
+
+All Kubernetes resources were successfully deployed, configured, and verified using kubectl commands.
+
+----
+
+
+
+
+
+
+
+
+-----
+
+## Step 1 — Verify 
+
+```
+docker --version
+kubectl version --client
+minikube version
+```
+
+**Everything is UP & RUNNING!**
+
+---
+
+## Step 2 — Start Minikube
+
+```
+minikube start
+
+#Verify:
+kubectl get nodes
+```
+
+<img width="2142" height="994" alt="image" src="https://github.com/user-attachments/assets/4aac8a37-6e0c-4d84-8fe1-ca031bd2d9b4" />
+
+
+
+
+---
 
 
 
@@ -429,14 +620,3 @@ Jr. DevOps Engineer\
 
 ---
 
-# Skiltest-2 Container Orchestration
-
-
-![alt text](<Screenshot 2026-05-17 at 2.02.47 PM.png>)
-
-
-![alt text](<Screenshot 2026-05-17 at 3.10.40 PM.png>)
-
-![alt text](<Screenshot 2026-05-17 at 3.29.44 PM.png>)
-
-![alt text](<Screenshot 2026-05-17 at 3.40.44 PM.png>)
