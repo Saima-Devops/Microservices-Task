@@ -538,7 +538,7 @@ These deployments provide automated pod orchestration, scalability, self-healing
 
 Kubernetes Services were implemented for all microservices to enable secure and reliable communication between components inside the cluster.
 
-### Service Types Used in this Project
+#### Service Types Used in this Project
 
 | Service | Type |
 |---|---|
@@ -612,8 +612,6 @@ kubectl get pods -n ingress-nginx
 ```
 
 <img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/7f69c4b4-3496-4e44-bc5e-04eb0779317a" />
-
-<img width="2560" height="1600" alt="image" src="https://github.com/user-attachments/assets/d53de946-e758-4203-b498-6f2128e7f8ed" />
 
 <img width="1678" height="624" alt="image" src="https://github.com/user-attachments/assets/fe6a47af-58a5-4b5b-b833-2d06fb74eac5" />
 
