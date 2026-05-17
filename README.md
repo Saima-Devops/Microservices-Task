@@ -1,8 +1,17 @@
 # Microservices Project with Docker Compose + Kubernetes Orchestration 
 
-### Skill Test 1: Containerization with Docker & Docker-Compose 
+This project was developed as part of the skill assessment conducted by HeroVired during my PPMCAD learning journey. It consists of a Node.js-based application composed of four independent microservices designed for modular and scalable architecture.
 
----
+The application was deployed using two different approaches to demonstrate flexibility in deployment strategies and to strengthen practical understanding of containerized environments and orchestration workflows.
+
+Let us explore both approaches individually for a clearer understanding of the deployment process.
+
+1. **Skill Test 1:** [Containerization with Docker & Docker-Compose](https://github.com/Saima-Devops/Microservices-Task/blob/main/README.md#skill-test-1-containerization-with-docker--docker-compose)
+2. **Skiltest-2:** [Container Orchestration with Kubernetes](https://github.com/Saima-Devops/Microservices-Task/blob/main/README.md#skiltest-2-container-orchestration-with-kubernetes)
+
+-----
+
+### Skill Test 1: Containerization with Docker & Docker-Compose 
 
 ## Overview
 
